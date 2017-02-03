@@ -6,8 +6,9 @@ class LargestPrimeFactor
   def initialize(number)
     @number = number
     (2..Math.sqrt(@number)).each do |num|
-      while @number % num == 0 && (@number/num != 1)
+      while @number % num == 0
         @number = @number / num
+        return if @number.prime?
       end
     end
   end
